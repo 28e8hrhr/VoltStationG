@@ -1,18 +1,17 @@
-
- VoltStation
+# VoltStation 
 
 Estação de recarga de veículos elétricos com energia solar e monitoramento inteligente.
 **Sprint 4 · Desafio GoodWe · FIAP**
 
  Vídeo: https://youtu.be/SEU_LINK_AQUI
- Wokwi: https://wokwi.com/projects/SEU_ID_AQUI
+ Wokwi: (https://wokwi.com/projects/478455549354986497)
 
+---
 
-
- Equipe
+## Equipe
 
 | Nome | RM |
-|---|---|
+
 | Carlos Eduardo Tavares | 572949 |
 | Guilherme | RM_AQUI |
 | João Pedro Soler | RM_AQUI |
@@ -22,11 +21,11 @@ Estação de recarga de veículos elétricos com energia solar e monitoramento i
 
 
 
- O problema
+## O problema
 
 Muita gente carrega o carro elétrico à noite, no horário de pico, quando a energia é mais cara. Ao mesmo tempo, quem tem painéis solares desperdiça o excedente gerado durante o dia.
 
- A solução
+## A solução
 
 A VoltStation escolhe sozinha de onde vem a energia para carregar o carro:
 
@@ -38,23 +37,25 @@ Um dashboard web mostra em tempo real a geração, a bateria, a recarga e o CO�
 
 
 
- Arquitetura
+## Arquitetura
 
 ```mermaid
 flowchart LR
-    S[Sensores<br/>solar, bateria, temperatura] --> E[ESP32<br/>decide a fonte de energia]
-    E --> C[Carregador do carro]
-    E -->|dados| D[Dashboard web]
+    S["Sensores: solar, bateria, temperatura"] --> E["ESP32: decide a fonte de energia"]
+    E --> C["Carregador do carro"]
+    E -- "dados MQTT" --> D["Dashboard web"]
+```
+
+- **ESP32 (Wokwi):** lê os sensores, decide a fonte de energia e liga o carregador.
+- **Dashboard web:** mostra os dados em gráficos.
 
 
- **ESP32 (Wokwi):** lê os sensores, decide a fonte de energia e liga o carregador.
- **Dashboard web:** mostra os dados em gráficos.
 
 
-
- Tecnologias GoodWe
+## Tecnologias GoodWe
 
 | Equipamento GoodWe | O que faz na solução |
+|---|---|
 | Inversor híbrido | Gerencia painéis, bateria e rede |
 | Bateria Lynx Home | Guarda a energia solar para usar à noite |
 | Carregador de VE (HCA) | Carrega o carro |
@@ -62,14 +63,14 @@ flowchart LR
 
 Na simulação, o ESP32 faz o papel do inversor.
 
-<img width="684" height="555" alt="Captura de tela 2026-10-20 231026" src="https://github.com/user-attachments/assets/c1c07e65-9806-462e-8cb4-92e116e1fcb4" />
 
- Alinhamento com o desafio e a disciplina
 
-Energia renovável:** a energia solar sempre tem prioridade.
-Armazenamento:** a bateria é usada no horário de pico.
-Monitoramento:** o dashboard funciona em tempo real.
-Conteúdos da disciplina:** IoT (ESP32 e sensores), lógica de programação e desenvolvimento web.
+## Alinhamento com o desafio e a disciplina
+
+- **Energia renovável:** a energia solar sempre tem prioridade.
+- **Armazenamento:** a bateria é usada no horário de pico.
+- **Monitoramento:** o dashboard funciona em tempo real.
+- **Conteúdos da disciplina:** IoT (ESP32 e sensores), lógica de programação e desenvolvimento web.
 
 
 
@@ -78,6 +79,7 @@ Conteúdos da disciplina:** IoT (ESP32 e sensores), lógica de programação e d
 Cenário: painel de 10 kWp e carro rodando 50 km por dia (7,5 kWh por dia).
 
 | Indicador | Resultado |
+
 | Geração solar | ~45 kWh/dia |
 | Recarga com energia solar ou da bateria | ~100% |
 | Uso da rede no horário de pico | 0 |
@@ -85,7 +87,7 @@ Cenário: painel de 10 kWp e carro rodando 50 km por dia (7,5 kWh por dia).
 
 
 
- Sustentabilidade e inovação
+## Sustentabilidade e inovação
 
 **Benefícios:** menos emissões, menos sobrecarga na rede e menor custo para o usuário.
 **Diferenciais:** decisão automática, dashboard em tempo real e indicador de CO₂.
@@ -93,11 +95,11 @@ Cenário: painel de 10 kWp e carro rodando 50 km por dia (7,5 kWh por dia).
 
 
 
-Ferramentas
+## Ferramentas
 
 ESP32 · Wokwi · C++ (Arduino) · HTML · CSS · JavaScript · GitHub
 
- Referências
+## Referências
 
 - GoodWe: https://www.goodwe.com
 - Wokwi: https://docs.wokwi.com
